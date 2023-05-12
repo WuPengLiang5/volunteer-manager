@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wpl.volunteer.dao.ActivityDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wpl.volunteer.entity.Activity">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+<!--        <result column="brief_introduction" property="briefIntroduction" />-->
+        <result column="introduction" property="introduction" />
+        <result column="begin_time" property="beginTime" />
+        <result column="end_time" property="endTime" />
+        <result column="registration_begin" property="registrationBegin" />
+        <result column="registration_end" property="registrationEnd" />
+        <result column="location" property="location" />
+        <result column="register_max" property="registerMax" />
+        <result column="state" property="state" />
+        <result column="cover" property="cover" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, title, introduction, begin_time, end_time, registration_begin, registration_end, location, register_max, state, cover
+    </sql>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT * FROM activity
+    </select>
+
+<!--&lt;!&ndash;    <select id="selectActivityByUserId" resultMap="BaseResultMap">&ndash;&gt;-->
+<!--&lt;!&ndash;        SELECT a.* FROM user_activity ua, activity a&ndash;&gt;-->
+<!--&lt;!&ndash;        where ua.activity_id=a.id and ua.user_id=#{uId} and ua.state=0&ndash;&gt;-->
+<!--&lt;!&ndash;        order by a.id&ndash;&gt;-->
+<!--&lt;!&ndash;    </select>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <select id="selectActivityById" resultMap="BaseResultMap">&ndash;&gt;-->
+<!--&lt;!&ndash;        SELECT a.* FROM activity a&ndash;&gt;-->
+<!--&lt;!&ndash;        where a.id=#{aId}&ndash;&gt;-->
+<!--&lt;!&ndash;        order by a.id&ndash;&gt;-->
+<!--&lt;!&ndash;    </select>&ndash;&gt;-->
+
+</mapper>

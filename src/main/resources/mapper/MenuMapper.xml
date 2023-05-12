@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wpl.volunteer.dao.MenuDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wpl.volunteer.entity.Menu">
+        <id column="id" property="id" />
+        <result column="pid" property="pid" />
+        <result column="name" property="path" />
+        <result column="url" property="component" />
+        <result column="title" property="redirect" />
+        <result column="url" property="name" />
+        <result column="title" property="title" />
+        <result column="url" property="icon" />
+        <result column="title" property="hidden" />
+        <result column="type" property="type" />
+        <result column="perms" property="perms" />
+        <result column="is_delete" property="isDelete" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, pid,path,component,redirect,name,title,icon,hidden,type,perms,is_delete
+    </sql>
+
+    <select id="selectByRoleId" resultType="com.wpl.volunteer.entity.Menu">
+        select m.id,pid,path,component,redirect,name,title,icon,hidden,type,perms,is_delete
+        from menu m INNER JOIN role_menu rm on rm.menu_id = m.id and rm.role_id = #{roleId}
+        where m.is_delete = 0
+    </select>
+
+</mapper>
